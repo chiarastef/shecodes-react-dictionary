@@ -1,1 +1,9 @@
+.App {
+  margin-top: 50px;
+}
 
+footer {
+  font-family: monospace;
+  text-align: center;
+  font-size: 11px;
+}
