@@ -6,7 +6,7 @@ import Results from "./Results";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  const [keyword, setKeyword] = useState("");
+  const [word, setWord] = useState("");
   const [results, setResults] = useState(null);
 
   function handleResponse(response) {
@@ -15,12 +15,12 @@ export default function Dictionary() {
 
   function search(event) {
     event.preventDefault();
-    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
   function handleChange(event) {
-    setKeyword(event.target.value);
+    setWord(event.target.value);
   }
 
   return (

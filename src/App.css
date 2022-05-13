@@ -1,9 +1,24 @@
 .App {
   margin-top: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--accent-color);
 }
 
 footer {
   font-family: monospace;
-  text-align: center;
-  font-size: 11px;
+  font-size: 10px;
+  margin-top: 30px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--accent-color);
 }
