@@ -9,7 +9,11 @@ function App() {
         <h1>What word do you want to look up?</h1>
         <Dictionary />
         <footer>
-          <a href="https://github.com/chiarastef/shecodes-react-dictionary">
+          <a
+            href="https://github.com/chiarastef/shecodes-react-dictionary"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open-source code
           </a>{" "}
           by Chiara Stefanelli

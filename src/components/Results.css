@@ -1,3 +1,7 @@
 .Results {
   margin-top: 20px;
 }
+
+.word {
+  text-transform: capitalize;
+}
