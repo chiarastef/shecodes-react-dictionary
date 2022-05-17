@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className="container">
         <h1>What word do you want to look up?</h1>
-        <Dictionary />
+        <Dictionary default="Sunset" />
         <footer>
           <a
             href="https://github.com/chiarastef/shecodes-react-dictionary"
