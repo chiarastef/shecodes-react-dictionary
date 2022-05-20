@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import FadeLoader from "react-spinners/FadeLoader";
 
 import Results from "./Results";
 import Photos from "./Photos.js";
@@ -48,6 +49,32 @@ export default function Dictionary(props) {
   if (loaded) {
     return (
       <div>
+        <section>
+          <h1>What word do you want to look up?</h1>
+          <form onSubmit={handleSubmit} className="row search-form">
+            <input
+              type="search"
+              className="search-input col-12 col-sm-8 col-md-7 col-lg-5"
+              onChange={handleChange}
+              defaultValue={props.default}
+            />
+            <input
+              type="submit"
+              value="Search"
+              className="btn search-btn col-12 col-sm-3 col-lg-2"
+            />
+          </form>
+        </section>
+        <Results results={results} />
+        <section>
+          <Photos photos={photos} />
+        </section>
+      </div>
+    );
+  } else {
+    load();
+    return (
+      <div>
         <form onSubmit={handleSubmit}>
           <input
             type="search"
@@ -55,12 +82,10 @@ export default function Dictionary(props) {
             defaultValue={props.default}
           />
         </form>
-        <Results results={results} />
-        <Photos photos={photos} />
+        <div className="spinner">
+          <FadeLoader color="#212529" loading={true} size={150} />
+        </div>
       </div>
     );
-  } else {
-    load();
-    return "Loading..";
   }
 }

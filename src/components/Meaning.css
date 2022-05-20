@@ -2,8 +2,26 @@
   margin-top: 15px;
 }
 
+.part-of-speech {
+  font-size: 19px;
+}
+
+.definition {
+  font-size: 15px;
+}
+
 .example {
   font-style: italic;
   font-size: 15px;
   margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .part-of-speech {
+    font-size: 20px;
+  }
+
+  .definition {
+    font-size: 16px;
+  }
 }

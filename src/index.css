@@ -1,3 +1,7 @@
 :root {
   --accent-color: #bb2762;
 }
+
+body {
+  background-color: var(--bs-light);
+}
