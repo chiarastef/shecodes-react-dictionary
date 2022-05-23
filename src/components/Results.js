@@ -1,13 +1,17 @@
+import FadeLoader from "react-spinners/FadeLoader";
+
 import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
 
 import "./Results.css";
 
+import Synonyms from "./Synonyms";
+
 export default function Results(props) {
   if (props.results) {
     return (
       <div className="Results">
-        <section>
+        <section className="word-section">
           <h3 className="word">{props.results.word}</h3>
           {props.results.phonetics.map((phonetic, index) => {
             return (
@@ -22,6 +26,7 @@ export default function Results(props) {
             return (
               <div key={index}>
                 <Meaning meaning={meaning} />
+                <Synonyms synonyms={meaning.synonyms} />
               </div>
             );
           })}
@@ -29,6 +34,10 @@ export default function Results(props) {
       </div>
     );
   } else {
-    return null;
+    return (
+      <div className="spinner">
+        <FadeLoader color="#212529" loading={true} size={150} />
+      </div>
+    );
   }
 }

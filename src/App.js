@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Dictionary default="Sunset" />
+        <Dictionary />
         <footer>
           <a
             href="https://github.com/chiarastef/shecodes-react-dictionary"

@@ -26,16 +26,12 @@ section {
 .search-btn {
   background-color: var(--accent-color);
   color: #f9fbfd;
+  transition: background-color 400ms ease-in-out;
 }
 
-.spinner {
-  margin: 50px;
-  height: 60px;
-}
-
-.spinner span {
-  display: block;
-  margin: 0 auto;
+.search-btn:hover {
+  background-color: #b61b59;
+  color: #f9fbfd;
 }
 
 @media screen and (min-width: 576px) {
@@ -54,14 +50,14 @@ section {
   }
 
   .search-form {
-    margin-top: 55px;
+    margin-top: 45px;
     justify-content: space-evenly;
   }
 }
 
 @media screen and (min-width: 768px) {
   .search-form {
-    margin-top: 65px;
+    margin-top: 55px;
     justify-content: center;
   }
 

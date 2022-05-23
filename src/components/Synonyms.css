@@ -1,3 +1,8 @@
-li {
-  list-style-position: inside;
+.Synonym {
+  margin-top: 15px;
+}
+
+.Synonym span {
+  display: inline-block;
+  margin-right: 5px;
 }
