@@ -20,6 +20,22 @@ export default function Dictionary() {
   }
 
   useEffect(() => {
+    function search() {
+      const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+      axios
+        .get(apiUrl)
+        .then(handleDictionaryResponse)
+        .catch(function () {
+          setdictionaryNotFound(true);
+        });
+
+      const pexelsApiKey =
+        "563492ad6f91700001000001ed1151ab972e436d86957521bdbae527";
+      const pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=6`;
+      const header = { Authorization: `Bearer ${pexelsApiKey}` };
+      axios.get(pexelsUrl, { headers: header }).then(handlePexelsResponse);
+    }
+
     search();
   }, [word]);
 
@@ -30,22 +46,6 @@ export default function Dictionary() {
 
   function handlePexelsResponse(response) {
     setPhotos(response.data.photos);
-  }
-
-  function search() {
-    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-    axios
-      .get(apiUrl)
-      .then(handleDictionaryResponse)
-      .catch(function () {
-        setdictionaryNotFound(true);
-      });
-
-    const pexelsApiKey =
-      "563492ad6f91700001000001ed1151ab972e436d86957521bdbae527";
-    const pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=6`;
-    const header = { Authorization: `Bearer ${pexelsApiKey}` };
-    axios.get(pexelsUrl, { headers: header }).then(handlePexelsResponse);
   }
 
   function handleSubmit(event) {

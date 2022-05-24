@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FadeLoader from "react-spinners/FadeLoader";
 import { nanoid } from "nanoid";
 
