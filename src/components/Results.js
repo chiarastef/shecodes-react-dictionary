@@ -1,11 +1,12 @@
+import { useState } from "react";
 import FadeLoader from "react-spinners/FadeLoader";
+import { nanoid } from "nanoid";
 
-import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
+import Meaning from "./Meaning";
+import Synonyms from "./Synonyms";
 
 import "./Results.css";
-
-import Synonyms from "./Synonyms";
 
 export default function Results(props) {
   if (props.results) {
@@ -13,20 +14,23 @@ export default function Results(props) {
       <div className="Results">
         <section className="word-section">
           <h3 className="word">{props.results.word}</h3>
-          {props.results.phonetics.map((phonetic, index) => {
+          {props.results.phonetics.map((phonetic) => {
             return (
-              <div key={index}>
+              <div key={nanoid()}>
                 <Phonetic phonetic={phonetic} />
               </div>
             );
           })}
         </section>
         <section>
-          {props.results.meanings.map((meaning, index) => {
+          {props.results.meanings.map((meaning) => {
             return (
-              <div key={index}>
+              <div key={nanoid()}>
                 <Meaning meaning={meaning} />
-                <Synonyms synonyms={meaning.synonyms} />
+                <Synonyms
+                  synonyms={meaning.synonyms}
+                  getSynonym={props.getSynonym}
+                />
               </div>
             );
           })}

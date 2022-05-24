@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 import "./Photos.css";
 
 export default function Photos(props) {
@@ -5,9 +7,9 @@ export default function Photos(props) {
     return (
       <div className="Photos">
         <div className="row">
-          {props.photos.map((photo, index) => {
+          {props.photos.map((photo) => {
             return (
-              <div className="col-12 col-sm-6 col-lg-4" key={index}>
+              <div className="col-12 col-sm-6 col-lg-4" key={nanoid()}>
                 <a href={photo.src.original} target="_blank" rel="noreferrer">
                   <img
                     src={photo.src.landscape}

@@ -2,6 +2,12 @@
   margin-top: 15px;
 }
 
-.Synonym span {
+.single-synonym {
   display: inline-block;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.single-synonym:hover {
+  color: var(--accent-color);
 }

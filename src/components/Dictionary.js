@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Results from "./Results";
@@ -6,12 +6,22 @@ import Photos from "./Photos.js";
 
 import "./Dictionary.css";
 
-export default function Dictionary(props) {
-  const [word, setWord] = useState(props.default);
+export default function Dictionary() {
+  const [word, setWord] = useState(null);
   const [results, setResults] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [photos, setPhotos] = useState(null);
   const [dictionaryNotFound, setdictionaryNotFound] = useState(false);
+
+  let wordToSearch = "";
+
+  function getSyn(syn) {
+    setWord(syn);
+  }
+
+  useEffect(() => {
+    search();
+  }, [word]);
 
   function handleDictionaryResponse(response) {
     setResults(response.data[0]);
@@ -40,12 +50,13 @@ export default function Dictionary(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
     setLoaded(true);
+    setWord(wordToSearch);
+    event.target.reset();
   }
 
   function handleChange(event) {
-    setWord(event.target.value);
+    wordToSearch = event.target.value;
   }
 
   if (loaded) {
@@ -70,7 +81,7 @@ export default function Dictionary(props) {
           <section>Sorry, word not found.</section>
         ) : (
           <>
-            <Results results={results} />
+            <Results results={results} getSynonym={getSyn} />
             <section>
               <Photos photos={photos} />
             </section>
