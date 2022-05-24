@@ -17,6 +17,7 @@ export default function Dictionary() {
 
   function getSyn(syn) {
     setWord(syn);
+    window.scrollTo(0, 0);
   }
 
   useEffect(() => {
