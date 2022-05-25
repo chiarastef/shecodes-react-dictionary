@@ -8,7 +8,7 @@ import Synonyms from "./Synonyms";
 import "./Results.css";
 
 export default function Results(props) {
-  if (props.results) {
+  if (props.results.word !== "null") {
     return (
       <div className="Results">
         <section className="word-section">

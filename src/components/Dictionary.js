@@ -26,7 +26,7 @@ export default function Dictionary() {
       axios
         .get(apiUrl)
         .then(handleDictionaryResponse)
-        .catch(function () {
+        .catch(() => {
           setdictionaryNotFound(true);
         });
 
@@ -83,9 +83,11 @@ export default function Dictionary() {
         ) : (
           <>
             <Results results={results} getSynonym={getSyn} />
-            <section>
-              <Photos photos={photos} />
-            </section>
+            {photos.length > 0 ? (
+              <section>
+                <Photos photos={photos} />
+              </section>
+            ) : null}
           </>
         )}
       </div>
