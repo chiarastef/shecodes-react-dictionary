@@ -15,11 +15,7 @@ export default function Dictionary() {
 
   let wordToSearch = "";
 
-  function getSyn(syn) {
-    setWord(syn);
-    window.scrollTo(0, 0);
-  }
-
+  // API call when word changes (when search form submitted)
   useEffect(() => {
     function search() {
       const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
@@ -40,15 +36,24 @@ export default function Dictionary() {
     search();
   }, [word]);
 
+  // Search for synonym (after clicking on that synonym)
+  function getSyn(syn) {
+    setWord(syn);
+    window.scrollTo(0, 0);
+  }
+
+  // Dictionary response
   function handleDictionaryResponse(response) {
     setResults(response.data[0]);
     setdictionaryNotFound(false);
   }
 
+  // Pexels (photos) response
   function handlePexelsResponse(response) {
     setPhotos(response.data.photos);
   }
 
+  // Form submitted
   function handleSubmit(event) {
     event.preventDefault();
     setLoaded(true);
@@ -56,6 +61,7 @@ export default function Dictionary() {
     event.target.reset();
   }
 
+  // Get word from search field
   function handleChange(event) {
     wordToSearch = event.target.value;
   }
@@ -78,11 +84,13 @@ export default function Dictionary() {
             />
           </form>
         </section>
+        {/* Show results only if the word is in the dictionary, if not show error message */}
         {dictionaryNotFound ? (
           <section>Sorry, word not found.</section>
         ) : (
           <>
             <Results results={results} getSynonym={getSyn} />
+            {/* Show photo section only if photo(s) exist(s) */}
             {photos.length > 0 ? (
               <section>
                 <Photos photos={photos} />

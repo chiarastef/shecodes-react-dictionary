@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import "./Synonyms.css";
 
 export default function Synonyms(props) {
+  // Show synonyms of if there are
   if (props.synonyms.length > 0) {
     return (
       <div className="Synonym">

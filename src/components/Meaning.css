@@ -6,13 +6,13 @@
   font-size: 19px;
 }
 
-.definition {
+.definition,
+.example {
   font-size: 15px;
 }
 
 .example {
   font-style: italic;
-  font-size: 15px;
   margin-bottom: 8px;
 }
 
