@@ -35,3 +35,4 @@ Chiara Stefanelli - Front-End Development Student based in Italy
 
 - Website - [Chiara Stefanelli](https://chiarastefanelli.netlify.app/)
 - LinkedIn - [Chiara Stefanelli](https://www.linkedin.com/in/chiarastefanelli/?locale=en_US)
+- SheCodes profile - [Chiara Stefanelli](https://www.shecodes.io/students/713-chiara-stefanelli)
