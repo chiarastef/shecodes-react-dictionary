@@ -27,9 +27,9 @@ export default function Dictionary() {
         });
 
       const pexelsApiKey =
-        "563492ad6f91700001000001ed1151ab972e436d86957521bdbae527";
+        "Y15KLwKP4D9jAo7dnNCug2UtUyujKOz0odWU4ByiJx7TWX4E2lab07W6";
       const pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=6`;
-      const header = { Authorization: `Bearer ${pexelsApiKey}` };
+      const header = { Authorization: pexelsApiKey };
       axios.get(pexelsUrl, { headers: header }).then(handlePexelsResponse);
     }
 
@@ -91,7 +91,7 @@ export default function Dictionary() {
           <>
             <Results results={results} getSynonym={getSyn} />
             {/* Show photo section only if photo(s) exist(s) */}
-            {photos.length > 0 ? (
+            {photos && photos.length > 0 ?  (
               <section>
                 <Photos photos={photos} />
               </section>
